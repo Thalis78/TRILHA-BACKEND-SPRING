@@ -18,7 +18,6 @@ Aqui estão implementações utilizando desde as bases da **Programação Orient
 - ✅ **Thymeleaf** – templates HTML integrados com Spring
 
 ---
-
 ## 💾 Banco de Dados
 
 Os projetos utilizam bancos de dados relacionais:
