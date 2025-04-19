@@ -6,6 +6,14 @@ Aqui estão implementações utilizando desde as bases da **Programação Orient
 
 ---
 
+# Sistema Reserva
+
+Este repositório contém o projeto **"Sistema Reserva"**, criado com o objetivo de aplicar conceitos de desenvolvimento backend utilizando **Java** e o framework **Spring**.
+
+O projeto foi desenvolvido evoluindo do básico até a implementação final com **Spring**, seguindo o padrão de projeto **MVC (Modelo-Visão-Controlador)**. O sistema simula um processo de reserva, com funcionalidades como cadastro de usuários, gerenciamento de reservas e autenticação.
+
+---
+
 ## 🧱 Tecnologias e Conceitos Utilizados
 
 - ✅ **POO (Programação Orientada a Objetos)** – classes, herança, encapsulamento, polimorfismo
