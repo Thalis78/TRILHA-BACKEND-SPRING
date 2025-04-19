@@ -1,0 +1,72 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.required > .form-label::after{
+    content: "*";
+    color: red;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+}
+.content{
+    text-align: center;
+    width: 60%;
+    margin-top: 30px;
+    margin: auto;
+}
+footer {
+    background-color: #f1f1f1;
+    padding: 1rem;
+    text-align: center;
+}
+.home{
+    display: inline-block;
+    margin: auto;
+    font-weight: bold;
+}
+
+.cadastro,.tipoReserva,.atualizar,.listar{
+    text-align: justify;
+    width: 50%;
+    margin: auto;
+    margin-top: 30px;
+    padding: 20px;
+}
+.mensagem{
+    text-align: justify;
+    margin: auto;
+    margin-top:30px;
+    width: 50%;
+}
+.excluir{
+    border: none;
+    background: red;
+    color: white;
+    font-weight: bold;
+}
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.form-control {
+    width: 100%;
+    padding-right: 40px;
+}

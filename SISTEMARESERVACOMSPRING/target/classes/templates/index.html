@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layoutPadrao.html}">
+<head>
+  <title>PAGINA PRINCIPAL</title>
+</head>
+<body>
+<header th:replace="~{/fragments/header.html}" th:fragment="header">
+
+</header>
+<div class="container" layout:fragment="context">
+  <div class="content">
+    <br>
+    <h2>
+      SEJA BEM-VINDO AO SISTEMA RESERVA <br>
+    </h2>
+    <h5>
+      ACESSE A DOCUMENTAÇÃO DO BOOTSTRAP: <a href="https://getbootstrap.com/docs" target="_blank">BOOTSTRAP</a>
+    </h5>
+    </div>
+  </div>
+</div>
+<footer id="footer" th:replace="~{/fragments/footer.html}" th:fragment="footer">
+
+</footer>
+</body>
+</html>

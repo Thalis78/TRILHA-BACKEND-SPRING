@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<body>
+<header th:fragment="header">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/Paginaprincipal">SISTEMA RESERVA</a>
+            <div id="navbarNav">
+                <ul class="navbar-nav nav-underline">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/equipamento">EQUIPAMENTO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/espaco">ESPAÇO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/funcionario">FUNCIONARIO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/reservaEquipamento">RESERVA EQUIPAMENTO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/reservaEspaco">RESERVA ESPAÇO</a>
+                    </li>
+                    <form th:action="@{/logout}" method="post">
+                        <li>
+                            <button type="submit" class="nav-link" >SAIR</button>
+                        </li>
+                    </form>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+</body>
+</html>

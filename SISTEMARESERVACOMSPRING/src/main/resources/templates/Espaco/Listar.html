@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layoutPadrao.html}">
+<head>
+    <title>LISTA DE ESPAÇOS</title>
+</head>
+<body>
+<header th:replace="~{/fragments/header.html}" th:fragment="header"></header>
+<div class="container" layout:fragment="context">
+    <p th:text="${mensagem}" th:class="${style}"></p>
+    <div class="listar">
+        <h1>LISTAR ESPAÇOS:</h1>
+
+        <form method="get" th:object="${espacoModel}" action="/listagemEspaco">
+            <div class="mb-3">
+                <label for="nome_espaço" class="form-label">NOME DO ESPAÇO:</label>
+                <input type="text" id="nome_espaço" th:field="*{nomeEspaco}" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">LISTAR</button>
+            <button class="btn btn-dark">
+                <a href="cadastroEspaco" style="color: white; text-decoration: none">CADASTRAR</a>
+            </button>
+        </form><br>
+
+        <table class="table table-bordered" style="text-align: center">
+            <thead>
+            <tr>
+                <td scope="col">ID</td>
+                <td scope="col">NOME</td>
+                <td scope="col">STATUS</td>
+                <td scope="col">ATUALIZAR</td>
+                <td scope="col">EXCLUIR</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="espaco : ${espacos}">
+                <td th:text="${espaco.id_espaco}"></td>
+                <td th:text="${espaco.nomeEspaco}"></td>
+                <td th:text="${espaco.status}"></td>
+                <td>
+                    <form method="get" action="/atualizarPorIdEsp">
+                        <input type="hidden" name="id" th:value="${espaco.id_espaco}"/>
+                        <input type="hidden" name="nome" th:value="${espaco.nomeEspaco}"/>
+                        <button type="submit" class="btn btn-primary">EDITAR</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="/deletarEspaco">
+                        <input type="hidden" name="id" th:value="${espaco.id_espaco}"/>
+                        <button type="submit" class="btn btn-danger">EXCLUIR</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div>
+            <nav aria-label="Page navigation example" th:if="${totalItems > 0}">
+                <ul class="pagination" style="margin-left: 35%;">
+                    <li class="page-item" th:class="${currentPage == 0} ? 'disabled'">
+                        <a class="page-link" th:href="@{/listagemEspaco(page=${currentPage - 1}, nomeEspaco=${filter})}" aria-label="Previous">&laquo;</a>
+                    </li>
+                    <th:block th:each="i : ${pageNumbers}">
+                        <li class="page-item" th:class="${i == currentPage} ? 'active'">
+                            <a class="page-link" th:href="@{/listagemEspaco(page=${i}, nomeEspaco=${filter})}" th:text="${i + 1}"
+                               aria-current="${i == currentPage ? 'page' : null}"></a>
+                        </li>
+                    </th:block>
+                    <li class="page-item" th:class="${currentPage == totalPages - 1} ? 'disabled'">
+                        <a class="page-link" th:href="@{/listagemEspaco(page=${currentPage + 1}, nomeEspaco=${filter})}" aria-label="Next">&raquo;</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<footer id="footer" th:replace="~{/fragments/footer.html}" th:fragment="footer"></footer>
+</body>
+</html>

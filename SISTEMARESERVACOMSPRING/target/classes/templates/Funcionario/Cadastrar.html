@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layoutPadrao.html}">
+<head>
+    <title>CADASTRO FUNCIONARIO</title>
+</head>
+<body>
+<header th:replace="~{/fragments/header.html}" th:fragment="header">
+
+</header>
+<div class="container" layout:fragment="context">
+    <p th:text="${mensagem}" th:class="${style}"></p>
+    <div class="cadastro">
+        <h1>
+            CADASTRO FUNCIONARIO:
+        </h1>
+        <form method="post" th:object="${funcionarioModel}" action="cadastroRealizadoFunc">
+            <div class="mb-3 required">
+                <label for="nome_fun" class="form-label">NOME DO FUNCIONARIO</label>
+                <input id="nome_fun" class="form-control" type="text" th:field="*{nomeFuncionario}" required>
+            </div>
+            <div class="mb-3 required">
+                <label class="form-label">CARGO FUNCIONARIO</label>
+                <select class="form-select" th:field="*{cargo}">
+                    <option value="CHEFIA">CHEFIA</option>
+                    <option value="NORMAL">NORMAL</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">CADASTRAR</button>
+            <button class="btn btn-dark" type="button">
+                <a href="/listFunc" style="color: white; text-decoration: none">
+                    PESQUISAR
+                </a>
+            </button>
+        </form>
+    </div>
+</div>
+<footer id="footer" th:replace="~{/fragments/footer.html}" th:fragment="footer">
+
+</footer>
+</body>
+</html>

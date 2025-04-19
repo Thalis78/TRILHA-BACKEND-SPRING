@@ -1,0 +1,96 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    font-family: "Open Sans", sans-serif;
+}
+header h1{
+    text-align: center;
+}
+main button{
+    background: white;
+    border: 3px solid black;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 5px;
+    width: 200px;
+}
+main button:hover{
+    width: 205px;
+}
+main *{
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: black;
+    display: block;
+    margin: auto;
+    border: 3px solid black;
+    border-radius: 8px;
+    width: 170px;
+    padding: 8px;
+}
+a:hover{
+    width: 175px;
+}
+.buscar{
+    margin: auto;
+    margin-top: 30vh;
+    width: 320px;
+    height: 130px;
+    border: 10px;
+    box-shadow: 7px 7px 7px 7px rgba(31, 29, 29, .5);
+}
+.cadastrar{
+    margin: auto;
+    margin-top: 30vh;
+    width: 500px;
+    height: 270px;
+    border: 10px;
+    box-shadow: 7px 7px 7px 7px rgba(31, 29, 29, .5);
+}
+.countainer{
+    text-align: center;
+    font-weight: bold;
+}
+.countainer input[type="submit"]{
+    width: 200px;
+    height: 30px;
+    height: 30px;
+    border-radius: 10px;
+    margin: 12px 0;
+
+
+}
+.countainer1 input {
+    border-radius: 10px;
+    margin: 12px 0;
+    width: 350px;
+    height: 30px;
+}
+
+.estilogenerico{
+    margin: auto;
+    margin-top: 30vh;
+    width: 75%;
+    font-weight: bold;
+    padding-top: 30px;
+    text-align: center;
+    border-radius: 7px;
+    box-shadow: 2px 2px 2px 2px rgba(31, 29, 29, .5);
+}
+.Erro{
+    display: block;
+    text-align: center;
+    margin: auto;
+    margin-top: 250px;
+}
+.Erro img{
+    margin: auto;
+    display: inline-block;
+    width: 100px;
+}
+
+

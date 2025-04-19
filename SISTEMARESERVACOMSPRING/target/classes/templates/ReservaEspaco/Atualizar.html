@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layoutPadrao.html}">
+<head>
+    <title>ATUALIZAR RESERVA ESPAÇO:</title>
+</head>
+<body>
+<header th:replace="~{fragments/header.html}" th:fragment="header">
+</header>
+<div class="container" layout:fragment="context">
+    <div class="atualizar" >
+        <h1>
+            ATUALIZAR RESERVA(ESPAÇO):
+        </h1>
+        <form method="post" action="/atualizarReservaEspaco">
+            <div class="mb-3 required">
+                <label for="id" class="form-label">ID DA RESERVA</label>
+                <input type="number" id="id" name="id" class="form-control" th:value="${id}" readonly>
+            </div>
+            <div class="mb-3 required">
+                <label class="form-label" for="espaco">ESPAÇO</label>
+                <select class="form-select" required id="espaco" name="espaco">
+                    <option th:each="espacos : ${espacoModelList}"
+                            th:text="${espacos.nomeEspaco}"
+                            th:value="${espacos.id_espaco}"></option>
+                </select>
+            </div>
+            <div class="mb-3 required">
+            <label class="form-label" for="func">FUNCIONARIO</label>
+            <select class="form-select" required name="func" id="func">
+                <option th:each="funcionarios : ${funcionarioModelList}"
+                        th:text="${funcionarios.nomeFuncionario}"
+                        th:value="${funcionarios.id}"></option>
+            </select>
+            </div>
+            <button type="submit" class="btn btn-primary">ATUALIZAR</button>
+        </form>
+    </div>
+</div>
+<footer th:replace="~{fragments/footer.html}" th:fragment="footer">
+
+</footer>
+</body>
+</html>

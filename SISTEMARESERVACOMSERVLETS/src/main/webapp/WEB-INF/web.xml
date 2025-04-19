@@ -1,0 +1,70 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<!--
+WEB.XML É UM ARQUIVO USADO PARA CONFIGURAR UMA APLICAÇÃO WEB
+ELE É USADO EM TODAS AS APLICAÇÕES WEB BASEADA EM SERVLETS-->
+<web-app>
+    <servlet>
+        <servlet-name>EQUIPAMENTO</servlet-name>
+        <servlet-class>br.edu.ifpi.catce.sistemareserva.controllers.EquipamentoController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ESPACO</servlet-name>
+        <servlet-class>br.edu.ifpi.catce.sistemareserva.controllers.EspacoController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FUNCIONARIO</servlet-name>
+        <servlet-class>br.edu.ifpi.catce.sistemareserva.controllers.FuncionarioController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RESERVAEQUIPAMENTO</servlet-name>
+        <servlet-class>br.edu.ifpi.catce.sistemareserva.controllers.ReservaEquipamentoController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RESERVAESPACO</servlet-name>
+        <servlet-class>br.edu.ifpi.catce.sistemareserva.controllers.ReservaEspacoController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RESERVAS</servlet-name>
+        <servlet-class>br.edu.ifpi.catce.sistemareserva.controllers.ReservasControllers</servlet-class>
+    </servlet>
+
+
+
+    <servlet-mapping>
+        <servlet-name>EQUIPAMENTO</servlet-name>
+        <url-pattern>/EQUIPAMENTO</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ESPACO</servlet-name>
+        <url-pattern>/ESPACO</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FUNCIONARIO</servlet-name>
+        <url-pattern>/FUNCIONARIO</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RESERVAEQUIPAMENTO</servlet-name>
+        <url-pattern>/RESERVAEQUIPAMENTO</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RESERVAESPACO</servlet-name>
+        <url-pattern>/RESERVAESPACO</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RESERVAS</servlet-name>
+        <url-pattern>/RESERVAS</url-pattern>
+    </servlet-mapping>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.html</location>
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/500.html</location>
+    </error-page>
+</web-app>
+

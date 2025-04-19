@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layoutPadrao.html}">
+<head>
+    <title>LISTA DE RESERVA (ESPAÇO)</title>
+</head>
+<body>
+<header th:replace="~{/fragments/header.html}" th:fragment="header">
+
+</header>
+<div class="container" layout:fragment="context">
+    <p th:text="${mensagem}" th:class="${style}"></p>
+
+    <div class="listar">
+        <h1>LISTAR RESERVA:</h1>
+        <form method="get" th:object="${reservaEspacoModel}" action="/ListagemRealizadaReservaEsp">
+            <div class="mb-3">
+                <label class="form-label">NOME DO ESPAÇO:</label>
+                <input type="text" th:field="*{espaco.nomeEspaco}" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">LISTAR</button>
+            <button class="btn btn-dark" type="button">
+                <a href="cadastroReservaEsp" style="color: white; text-decoration: none">CADASTRAR</a>
+            </button>
+        </form>
+        <br>
+
+        <table class="table table-bordered" style="text-align: center">
+            <thead>
+            <tr>
+                <td scope="col">ID</td>
+                <td scope="col">NOME DO ESPAÇO</td>
+                <td scope="col">FUNCIONÁRIO</td>
+                <td scope="col">ATUALIZAR</td>
+                <td scope="col">EXCLUIR</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="reservaEsp : ${reservasEspacos}">
+                <td th:text="${reservaEsp.id_reserva}"></td>
+                <td th:text="${reservaEsp.espaco.nomeEspaco}"></td>
+                <td th:text="${reservaEsp.funcionario.nomeFuncionario}"></td>
+                <td>
+                    <form method="get" action="/atualizarPorIdReservaEspaco">
+                        <input type="hidden" name="id" th:value="${reservaEsp.id_reserva}">
+                        <button type="submit" class="btn btn-primary">EDITAR</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="/deletarReservaEsp">
+                        <input type="hidden" name="id" th:value="${reservaEsp.id_reserva}"/>
+                        <button type="submit" class="btn btn-danger">EXCLUIR</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="style-pagination">
+            <nav aria-label="Page navigation example" th:if="${totalItems > 0}">
+                <ul class="pagination" style="margin-left: 35%;">
+                    <li class="page-item" th:class="${currentPage == 0} ? 'disabled'">
+                        <a class="page-link" th:href="@{/ListagemRealizadaReservaEsp(page=${currentPage - 1}, espaco.nomeEspaco=${filter})}" aria-label="Previous">&laquo;</a>
+                    </li>
+                    <th:block th:each="i : ${pageNumbers}">
+                        <li class="page-item" th:class="${i == currentPage} ? 'active'">
+                            <a class="page-link" th:href="@{/ListagemRealizadaReservaEsp(page=${i}, espaco.nomeEspaco=${filter})}" th:text="${i + 1}"
+                               aria-current="${i == currentPage ? 'page' : null}"></a>
+                        </li>
+                    </th:block>
+                    <li class="page-item" th:class="${currentPage == totalPages - 1} ? 'disabled'">
+                        <a class="page-link" th:href="@{/ListagemRealizadaReservaEsp(page=${currentPage + 1}, espaco.nomeEspaco=${filter})}" aria-label="Next">&raquo;</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+</div>
+<footer id="footer" th:replace="~{/fragments/footer.html}" th:fragment="footer">
+
+</footer>
+</body>
+</html>

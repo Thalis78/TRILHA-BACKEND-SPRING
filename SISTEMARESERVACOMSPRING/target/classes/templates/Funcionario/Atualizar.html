@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layoutPadrao.html}">
+<head>
+    <title>ATUALIZAR FUNCIONARIO:</title>
+</head>
+<body>
+<header th:replace="~{fragments/header.html}" th:fragment="header">
+</header>
+<div class="container" layout:fragment="context">
+    <div class="atualizar" >
+        <h1>
+            ATUALIZAR FUNCIONARIO:
+        </h1>
+        <form method="post" action="/atualizarFunc">
+            <div class="mb-3 required">
+                <label for="id" class="form-label">ID DO FUNCIONARIO</label>
+                <input type="number" id="id" name="id" class="form-control" th:value="${id}" readonly>
+            </div>
+            <div class="mb-3 required">
+                <label for="nome" class="form-label">NOME DO FUNCIONARIO</label>
+                <input id="nome" name="nome" class="form-control" type="text" th:value="${nome}">
+            </div>
+            <div class="mb-3 required">
+                <label for="cargo" class="form-label">CARGO FUNCIONARIO</label>
+                <select class="form-select" id="cargo" name="cargo">
+                    <option value="CHEFIA">CHEFIA</option>
+                    <option value="NORMAL">NORMAL</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">ATUALIZAR</button>
+        </form>
+    </div>
+</div>
+<footer th:replace="~{fragments/footer.html}" th:fragment="footer">
+
+</footer>
+</body>
+</html>

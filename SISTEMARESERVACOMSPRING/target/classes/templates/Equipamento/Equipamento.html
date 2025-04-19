@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layoutPadrao.html}">
+<head>
+  <title>EQUIPAMENTO</title>
+</head>
+<body>
+<header th:replace="~{/fragments/header.html}" th:fragment="header">
+
+</header>
+<div class="container" layout:fragment="context">
+  <div class="content">
+    <br>
+    <h1>
+      EQUIPAMENTO:
+    </h1>
+    <br>
+    <div class="list-group">
+      <a href="/cadastroEquipamento"class="list-group-item list-group-item-action">CADASTRAR</a>
+      <a href="/listEquipamento" class="list-group-item list-group-item-action">PESQUISA EQUIPAMENTO</a>
+    </div>
+  </div>
+</div>
+<footer id="footer" th:replace="~{/fragments/footer.html}" th:fragment="footer">
+
+</footer>
+</body>
+</html>

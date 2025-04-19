@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layoutPadrao.html}">
+<head>
+    <title>LISTA DE FUNCIONARIO</title>
+</head>
+<body>
+<header th:replace="~{/fragments/header.html}" th:fragment="header">
+
+</header>
+<div class="container" layout:fragment="context">
+    <p th:text="${mensagem}" th:class="${style}"></p>
+    <div class="listar">
+        <h1>
+            LISTAR FUNCIONARIO:
+        </h1>
+
+        <form method="get" th:object="${funcionarioModel}" action="/listagemFuncionario">
+            <div class="mb-3">
+                <label class="form-label">NOME DO FUNCIONARIO:</label>
+                <input type="text" th:field="*{nomeFuncionario}" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">LISTAR</button>
+            <button class="btn btn-dark" type="button">
+                <a href="cadastroFuncionario" style="color: white; text-decoration: none">CADASTRAR</a>
+            </button>
+        </form><br>
+        <table class="table table-bordered" style="text-align: center">
+            <thead>
+            <tr>
+                <td scope="col">ID</td>
+                <td scope="col">NOME</td>
+                <td scope="col">CARGO</td>
+                <td scope="col">ATUALIZAR</td>
+                <td scope="col">EXCLUIR</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="funcionario : ${funcionarios}">
+                <td th:text="${funcionario.id}"></td>
+                <td th:text="${funcionario.nomeFuncionario}"></td>
+                <td th:text="${funcionario.cargo}"></td>
+                <td>
+                    <form method="get" action="/atualizarPorIdFunc">
+                        <input type="hidden" name="id" th:value="${funcionario.id}">
+                        <input type="hidden" name="nome" th:value="${funcionario.nomeFuncionario}">
+                        <button type="submit" class="btn btn-primary">EDITAR</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="/deletarFuncionario">
+                        <input type="hidden" name="id" th:value="${funcionario.id}"/>
+                        <button type="submit" class="btn btn-danger">EXCLUIR</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div>
+            <nav aria-label="Page navigation example" th:if="${totalItems > 0}">
+                <ul class="pagination" style="margin-left: 35%;">
+                    <li class="page-item" th:class="${currentPage == 0} ? 'disabled'">
+                        <a class="page-link" th:href="@{/listagemFuncionario(page=${currentPage - 1}, nomeFuncionario=${filter})}" aria-label="Previous">&laquo;</a>
+                    </li>
+                    <th:block th:each="i : ${pageNumbers}">
+                        <li class="page-item" th:class="${i == currentPage} ? 'active'">
+                            <a class="page-link" th:href="@{/listagemFuncionario(page=${i}, nomeFuncionario=${filter})}" th:text="${i + 1}"
+                               aria-current="${i == currentPage ? 'page' : null}"></a>
+                        </li>
+                    </th:block>
+                    <li class="page-item" th:class="${currentPage == totalPages - 1} ? 'disabled'">
+                        <a class="page-link" th:href="@{/listagemFuncionario(page=${currentPage + 1}, nomeFuncionario=${filter})}" aria-label="Next">&raquo;</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+</div>
+<footer id="footer" th:replace="~{/fragments/footer.html}" th:fragment="footer">
+
+</footer>
+</body>
+</html>

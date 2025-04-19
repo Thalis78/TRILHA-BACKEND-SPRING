@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layoutPadrao.html}">
+<head>
+    <title>CADASTRO RESERVA ESPAÇO:</title>
+</head>
+<body>
+<header th:replace="~{/fragments/header.html}" th:fragment="header">
+
+</header>
+<div class="container" layout:fragment="context">
+
+    <p th:text="${mensagem}" th:class="${style}"></p>
+
+    <div class="cadastro">
+
+        <h1>
+            CADASTRO RESERVA(ESPAÇO):
+        </h1>
+        <form method="post" th:object="${reservaEspacoModel}" action="/cadastroRealizadoReservaEsp">
+            <div class="mb-3 required">
+                <label class="form-label">ESPAÇO</label>
+                <select class="form-select" th:field="${reservaEspacoModel.espaco}" required>
+                    <option th:each="espacos : ${espacoModelList}"
+                            th:text="${espacos.nomeEspaco}"
+                            th:value="${espacos.id_espaco}"></option>
+                </select>
+            </div>
+            <div class="mb-3 required">
+                <label class="form-label">FUNCIONARIO</label>
+                <select class="form-select" th:field="${reservaEspacoModel.funcionario}" required>
+                    <option th:each="funcionarios : ${funcionarioModelList}"
+                            th:text="${funcionarios.nomeFuncionario}"
+                            th:value="${funcionarios.id}"></option>
+                </select>
+
+            </div>
+            <button type="submit" class="btn btn-primary">CADASTRAR</button>
+            <button class="btn btn-dark" type="button">
+                <a href="/listReservaEsp" style="color: white; text-decoration: none">
+                    PESQUISAR
+                </a>
+            </button>
+        </form>
+
+    </div>
+</div>
+<footer id="footer" th:replace="~{/fragments/footer.html}" th:fragment="footer">
+
+</footer>
+</body>
+</html>
