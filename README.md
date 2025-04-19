@@ -22,7 +22,7 @@ Aqui estão implementações utilizando desde as bases da **Programação Orient
 
 Os projetos utilizam bancos de dados relacionais:
 
-- 🐬 **MySQL / MariaDB**
+- 🐬 **MySQL**
 - 🐘 **PostgreSQL**
 
 Scripts `.sql` estão incluídos nos projetos, com tabelas e dados de teste.
