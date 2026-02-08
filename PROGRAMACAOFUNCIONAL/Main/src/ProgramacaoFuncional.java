@@ -1,3 +1,4 @@
+import java.util.Comparator;
 import java.util.List;
 
 public class ProgramacaoFuncional {
@@ -38,5 +39,45 @@ public class ProgramacaoFuncional {
 
         pecorrerListaViaForEach(listaDeNomes);
     }
+    public void removerDuplicatas(List<String> nomes){
+        List<String> listaNova  = nomes.stream()
+                .distinct()
+                .toList();
 
+        pecorrerListaViaForEach(listaNova);
+    }
+
+    public void ordenarListaDesc(List<String> nomes){
+        List<String> listaNova = nomes.stream()
+                .sorted(Comparator.reverseOrder())
+                .toList();
+
+        pecorrerListaViaForEach(listaNova);
+    }
+
+    public void ordenarListaAsc(List<String> nomes){
+        List<String> listaNova = nomes.stream()
+                .sorted()
+                .toList();
+
+        pecorrerListaViaForEach(listaNova);
+    }
+
+    public void limitarQunatidadeLista(List<String> nomes, Integer quantidadeNaLista){
+        List<String> listaNova = nomes.stream()
+                .limit(quantidadeNaLista)
+                .toList();
+
+        pecorrerListaViaForEach(listaNova);
+    }
+
+public void contarItensLista(List<String> nomes){
+    System.out.println(nomes.stream().count());
+}
+public void reduzirTudoPraUmUnicoValor(List<Integer> numeros){
+        int soma = numeros.stream()
+                .reduce(20, Integer::sum  );
+
+    System.out.println(soma);
+}
 }
